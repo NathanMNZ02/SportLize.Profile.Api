@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <DockerComposeProjectPath>../../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>31bd6213-0bc7-48b9-85c4-61df083350e6</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Profile.Repository\Model\" />
+    <None Remove="Profile.Repository\Enumeration\" />
+    <None Remove="Profile.Repository\Abstraction\" />
+    <None Remove="Profile.Business\Abstraction\" />
+    <None Remove="Controller\" />
+    <None Remove="Profile.ClientHttp\Abstraction\" />
+    <None Remove="Profile.Business\Kafka\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Profile.Repository\Enumeration\" />
+    <Folder Include="Profile.Repository\Abstraction\" />
+    <Folder Include="Profile.Business\Abstraction\" />
+    <Folder Include="Profile.ClientHttp\Abstraction\" />
+  </ItemGroup>
+</Project>
