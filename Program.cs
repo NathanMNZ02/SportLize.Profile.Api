@@ -6,7 +6,6 @@ using SportLize.Profile.Api.Profile.Repository;
 using SportLize.Profile.Api.Profile.Repository.Abstraction;
 using SportLize.Profile.Api.Profile.Business.Kafka;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ProfileDbContext>(options => options.UseSqlServer("name=ConnectionStrings:ProfileDbContext",
